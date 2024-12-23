@@ -1,0 +1,61 @@
+---
+import Cita from '../components/Cita.astro';
+import Layout from '../layouts/Layout.astro';
+import img from '../assets/facu.jpg';
+---
+
+<Layout>
+  <div class="hero-section flex h-screen">
+    <div class="w-7/12 flex flex-col justify-center p-8 gap-8">
+      <div>
+        <p class="text-5xl lg:text-6xl font-extrabold mb-4 text-gray-900 capitalize leading-snug">
+          Explora nuestras
+          <span class="font-bold text-blue-600">instalaciones</span>
+          y
+          <span class="font-bold text-blue-600">programas</span>
+        </p>
+        <p class="text-gray-500 text-lg">
+          Abrimos nuestras puertas para que puedas conocer nuestras
+          instalaciones y servicios. Reserva tu cita hoy mismo.
+        </p>
+      </div>
+      <div class="mt-12 flex gap-6 items-center">
+        <button
+          class="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium shadow-md hover:bg-blue-700 hover:shadow-lg transition-all"
+          id="goToCitaButton"
+        >
+          Agenda tu visita
+        </button>
+        <a
+          href="https://www.udemy.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-2 text-blue-600 hover:text-blue-700 transition"
+        >
+          <span class="bg-blue-100 text-blue-600 p-3 rounded-full shadow-md">
+            <i class="fa-solid fa-play"></i>
+          </span>
+          <span class="font-medium">Hecha un vistazo</span>
+        </a>
+      </div>
+    </div>
+    <div class="w-5/12 relative flex items-center justify-center">
+      <div class="img-container relative">
+        <img
+          src={img.src}
+          alt="Instalaciones"
+          class="w-[300px] lg:w-[400px] h-[400px] lg:h-[500px] object-cover rounded-2xl shadow-lg"
+        />
+      </div>
+    </div>
+  </div>
+  <Cita />
+</Layout>
+
+<script>
+  document.getElementById('goToCitaButton')?.addEventListener('click', () => {
+    document
+      .getElementById('cita-section')
+      ?.scrollIntoView({ behavior: 'smooth' });
+  });
+</script>
